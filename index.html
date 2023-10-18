@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login * AGC</title>
+    <style>
+        body{
+            text-align: center;
+            padding-top: 40%;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        fieldset {
+  margin: 20px;
+  padding: 0 10px 10px;
+  border: 1px solid #666;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #666;
+  padding-top: 10px;
+  
+}
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+    </style>
+</head>
+<body>
+    <fieldset style="background-color: rgb(255, 255, 255);">
+    <img src="haha.png" style="width: 50%; padding-bottom: 20px; padding-top: 10px;"> 
+    <form id="loginForm">
+        <label for="username" style="color: rgb(0, 0, 0);">Username:</label>
+        <input type="text" id="username" placeholder="Your name" required><br><br>
+
+        <label for="password" style="color: rgb(0, 0, 0);">Password:</label>
+        <input type="password" id="password" placeholder="Roll Number" required><br><br><br>
+        <button class="button-85" role="button">Login</button><br><br>
+        <a href="#" id="forgotPassword" style="color: rgb(0, 0, 0); text-align: right;">Forgot Password?</a> 
+    </form>
+</fieldset> 
+<a href="https://github.com/schrodingear/practicaljournalforgac"><img src="get-it-on-github.png" targe style="width: 40%; padding-top: 10%;"></a>
+
+    <script>
+        // Define the username-password pairs
+        const credentials = {
+            Gauri: "8601",
+            Sakshi: "8602",
+            Suraj: "8603",
+            Harshad: "8604",
+            Satish: "8605",
+            Sanika: "8606",
+            Sahil: "8607",
+            Vedant: "8608",
+            Rigveda: "8609",
+            Sharika: "8610",
+            Radha: "8611",
+            Mihir: "8612",
+            Avantika: "8613",
+            Omkar: "8614",
+            Urvee: "8615",
+            Vyankateshwar: "8616",
+            Shreyash: "8617",
+            Prajot: "8618",
+            Priti: "8619",
+            Rutik: "8620",
+            Divya: "8621",
+            Komal: "8622",
+            Rushikesh: "8623",
+            Sarvesh: "8624",
+            Neha: "8625",
+            Jagruti: "8626",
+            Shravani: "8627",
+            Tejashree: "8628",
+            Aishwarya: "8629",
+            Devraj: "8630",
+            Pratiksha: "8631",
+            Shital: "8632",
+            Shraddha: "8633",
+            Akshay: "8634",
+            Pranav: "8635",
+            Parth: "8636",
+            Jayesh: "8637",
+            Atharva: "8638",
+            Vivek: "8639",
+            Aditya: "8640",
+            Srushti: "8641",
+            Kalpesh: "8642",
+            Ruturaj: "8643",
+            Asmita: "8644"
+            //password pairs as needed
+        };
+
+        // Add an event listener for form submission
+        const loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the form from submitting normally
+
+            // Get the values entered by the user
+            const enteredUsername = document.getElementById("username").value;
+            const enteredPassword = document.getElementById("password").value;
+
+            // Check if the entered credentials match the defined pairs
+            if (credentials.hasOwnProperty(enteredUsername) && credentials[enteredUsername] === enteredPassword) {
+                localStorage.setItem("username", enteredUsername);
+                
+
+        // Redirect to page2.html
+        window.location.href = "page2.html";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+        const forgotPasswordLink = document.getElementById("forgotPassword");
+        forgotPasswordLink.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent the link from navigating
+
+            // Display a popup asking the user to contact their department
+            alert("It's impossible bruh");
+        });
+        
+        
+
+    </script>
+</body>
+</html>

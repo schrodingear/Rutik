@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical Journal</title>
+
+  <style>
+    /* Reset some default styles */
+    body, h1, h2, p, div, fieldset, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: #333;
+    }
+    ul{
+      color: white;
+    }
+
+    /* Global styles */
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 20px;
+      text-align: center;
+    }
+    footer {
+            background-color: #000751;
+            color: #ffeeee;
+            text-align: center;
+            padding: 10px;
+            border-radius: 30px;
+        }
+
+    /* Navigation menu styles */
+    .nav-menu {
+
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+      background-color: #000000;
+      color: #fff;
+      height: 100%;
+      width: 250px; /* Width of the side panel */
+      position: fixed;
+      top: 0;
+      left: -250px; /* Hide the panel by default */
+      overflow-x: hidden;
+      transition: 0.5s; /* Add a smooth transition when sliding in the panel */
+    }
+
+    .nav-menu.show {
+      left: 0; /* Show the panel when the "show" class is added */
+    }
+
+    /* Menu button styles */
+    .menu-button {
+      cursor: pointer;
+      margin: 10px;
+      padding: 5px;
+      background-color: #333;
+      color: beige;
+      border: 1px solid beige;
+      border-radius: 5px;
+    }
+
+    /* Submenu styles */
+    .submenu {
+      display: none;
+      padding-left: 20px;
+      font-size: 19px;
+    }
+
+    /* List item styles */
+    .menu-item {
+      list-style-type: none;
+      font-size: 20px;
+    }
+
+    /* Styling for links */
+    .menu-link {
+      color: beige;
+      text-decoration: none;
+    }
+
+    /* Show submenu when menu item is hovered */
+    .menu-item:hover .submenu {
+      display: block;
+    }
+    :focus {
+      outline: none;
+    }
+    /* Style the search box */
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+
+/* Style the navigation menu */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the navigation links */
+#myMenu li a {
+  padding: 12px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  display: block;
+
+}
+
+#myMenu li a:hover {
+  background-color: #000000;
+}
+
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+fieldset{
+  margin: 20px;
+  padding: 0 10px 10px;
+  border: 1px solid #666;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #666;
+  padding-top: 10px;
+  background-color: black;
+  color: #ddd;
+
+}
+header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+p {
+    color: white;
+
+}
+/* CSS */
+.button-64 {
+  display: block;
+    margin: auto;
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding:6px 6px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+textarea{
+  border-radius: 10px;
+}
+  </style>
+</head>
+<body>
+  <div></div>
+  <fieldset>
+  <header>
+    <div id="greeting-message" style="font-size: 20px; text-align: center;"></div>
+    <!-- Navigation menu button -->
+    <div class="menu-button" onclick="toggleNav()" style="margin-left: 90%; width: 20px;">=</div>
+    <a href="https://garwarecollege.mespune.in"><img src="haha.png" width="50%" class="vl" style="padding-bottom: 20px;"></a>
+    <h1>BCS Department</h1><br><br>
+    <p class="nav" style="color: rgb(0, 0, 0);border-radius: 10px;font-size: 13px;" >Code is like humor. When you have to explain it, it’s bad. – Cory House</p><br>
+    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category" style="width:92%; border-radius: 0.5cm; ">
+  </header><br>
+
+  <ul id="myMenu">
+    <li><a href="#" onclick="showCode('code1')">To find out first 100 prime numbers</a></li><hr>
+    <li><a href="#" onclick="showCode('code2')">To compute exponential zeroes</a></li><hr>
+    <li><a href="#" onclick="showCode('code3')">To sum square of all integers from 1 to 5</a></li><hr>
+    <li><a href="#" onclick="showCode('code4')">To sort numbers in descending order</a></li><hr>
+    <li><a href="#" onclick="showCode('code5')">To find integration using Simpson's 1/3<sup>rd</sup>rule</a></li>
+    <!-- Add more list items as needed -->
+  </ul>
+
+  <div id="code1" style="display: none;">
+    <textarea rows="20" cols="35">
+ #include <stdio.h>
+
+int is_prime(int n) {
+if (n <= 1) {
+ return 0;
+ }
+ if (n <= 3) {
+ return 1;
+ }
+ if (n % 2 == 0 || n % 3 == 0) {
+ return 0;
+ }
+ for (int i = 5; i * i <= n; i += 6) {
+ if (n % i == 0 || n % (i + 2) == 0) {
+ return 0;
+ }
+ }
+ return 1;
+ }
+
+ int main() {
+ int count = 0;
+ int num = 2; // Start with the first prime number, 2.
+
+ printf("First 100 prime numbers:\n");
+
+ while (count < 100) {
+ if (is_prime(num)) {
+ printf("%d ", num);
+ count++;
+ }
+ num++;
+ }
+
+ printf("\n");
+
+ return 0;
+ }
+    </textarea>
+    <button onclick="copyToClipboard('code1')" class="button-64" role="button"><span class="text">Copy!</span></button>
+
+</div>
+
+<div id="code2" style="display: none;">
+    <textarea rows="20" cols="35">
+#include<stdio.h>
+
+ int main() {
+ int n, t1 = 0, t2 = 1, nextTerm;
+
+ printf("Enter the number of terms: ");
+ scanf("%d", &n);
+
+ for (int i = 1; i <= n; ++i) {
+ printf("%d, ", t1);
+ nextTerm = t1 + t2;
+ t1 = t2;
+ t2 = nextTerm;
+ }
+ return 0;
+ }
+    </textarea>
+    <button onclick="copyToClipboard('code2')" id="butt">Copy</button>
+</div>
+
+<div id="code3" style="display: none;">
+  <textarea rows="20" cols="35">
+#include<stdio.h>
+
+ int main() {
+ int sum = 0;
+ for(int i = 1; i <= 5; i++) {
+ sum += i*i;
+ }
+ printf("Sum of squares: %d", sum);
+ return 0;
+ }
+  </textarea>
+  <button onclick="copyToClipboard('code3')" id="butt">Copy</button>
+</div>
+<div id="code4" style="display: none;">
+  <textarea rows="20" cols="35">
+    #include <stdio.h>
+
+      int main() {
+          int i, n;
+          float arr[100];
+
+          printf("Enter the number of elements (1 to 100): ");
+          scanf("%d", &n);
+          for(i = 0; i < n; ++i) {
+             printf("Enter Number %d: ", i+1);
+             scanf("%f", &arr[i]);
+          }
+          for(i = 1; i < n; ++i) {
+             if(arr[0] < arr[i])
+                 arr[0] = arr[i];
+          }
+          printf("Largest element = %.2f", arr[0]);
+          return 0;
+      }
+  </textarea>
+  <button onclick="copyToClipboard('code4')" id="butt">Copy</button>
+</div>
+<div id="code5" style="display: none;">
+  <textarea rows="20" cols="35">
+
+  </textarea>
+  <button onclick="copyToClipboard('code5')" id="butt">Copy</button>
+</div>
+<script>
+
+    function showCode(codeId) {
+      var codeElement = document.getElementById(codeId);
+      if (codeElement) {
+        // Hide all code elements
+        var codeElements = document.querySelectorAll('div[id^="code"]');
+        codeElements.forEach(function (element) {
+          element.style.display = 'none';
+        });
+
+        // Show the selected code element
+        codeElement.style.display = 'block';
+      }
+    }
+
+    function copyToClipboard(codeId) {
+        var codeElement = document.getElementById(codeId);
+        var content = codeElement.querySelector('textarea');
+        if (content) {
+          content.select();
+          document.execCommand('copy');
+          window.getSelection().removeAllRanges();
+
+          // Notify the user that the code is copied
+          alert('Code copied to clipboard!');
+        }
+    }
+</script>
+  <!-- Side navigation menu -->
+  <div class="nav-menu" id="navMenu">
+    <div style="background-color: #000751; border-radius: 20px;"><img src="pract.png" width="60%">
+        <p id="greeting" style="font-size: 20px; color: #023bad; margin-left: 0.5cm;"></p>
+
+    </div>
+    <script>
+        // Retrieve the username and password from local storage
+        const name = localStorage.getItem("username");
+        const pass = localStorage.getItem("password");
+
+        if (name) {
+            // Display the username in the #name element
+            const nameElement = document.getElementById( "name");
+            nameElement.textContent = name; // Display "Username:" before the username
+            nameElement.style.fontSize = "20px";
+        }
+        if (pass) {
+            // Display the password in the #pass element (not recommended)
+            const passElement = document.getElementById("pass");
+            passElement.textContent = pass; // Display "Password:" before the password
+            passElement.style.fontSize = "20px";
+        }
+    </script>
+
+
+    
+    
+    <ul style="padding-left: 20px;"><h3>Sem V</h3>
+      <li class="menu-item">
+        <a href="#" class="menu-link">Paper-I</a>
+        <ul class="submenu" style="list-style: none;">
+          <li><a href="y.html" class="menu-link">'Y' by vibration of wooden scale</a></li><hr>
+          <li><a href="mb.html" class="menu-link">Moment of inertia by bifilar suspension</a></li><hr>
+          <li><a href="sf.html" class="menu-link">Surface tension by Fergusson Method</a></li><hr>
+          <li><a href="sa.html" class="menu-link">Self Induction by Anderson's bridge</a></li><hr>
+          <li><a href="ct.html" class="menu-link">Core losses in Transformers</a></li>
+        </ul>
+      </li>
+      
+      <li class="menu-item">
+
+        <h4><a href="#" class="menu-link">Paper-II</a></h4>
+        <ul class="submenu" style=" list-style-type: none">
+          <li><a href="y.html" class="menu-link">Factorial of a number using simple and recursive method</a></li><hr>
+          <li><a href="mb.html" class="menu-link">To find out the first 100 Prime Numbers</a></li><hr>
+          <li><a href="sf.html" class="menu-link">Position-time data using kinematic equations</a></li><hr>
+          <li><a href="sa.html" class="menu-link">Pressure using Van der Waal's Equations</a></li><hr>
+          <li><a href="ct.html" class="menu-link">Roots of Polynomial (Newton-Raphson Method)</a></li><hr>
+          <li><a href="sa.html" class="menu-link">Numerical integration of Trapezoid rule</a></li><hr>
+          <li><a href="ct.html" class="menu-link">Numerical integration by Simpson 1/3rd rule</a></li>
+        </ul>
+      </li>
+      <h3>Sem VI</h3>
+      <li class="menu-item">
+        <a href="#" class="menu-link">Paper-I</a>
+        <ul class="submenu">
+          <li><a href="y.html" class="menu-link">'Y' by vibration of wooden scale</a></li>
+          <li><a href="mb.html" class="menu-link">Moment of inertia by bifilar suspension</a></li>
+          <li><a href="sf.html" class="menu-link">Surface tension by Fergusson Method</a></li>
+          <li><a href="sa.html" class="menu-link">Self Induction by Anderson's bridge</a></li>
+          <li><a href="ct.html" class="menu-link">Core losses in Transformers</a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+
+        <a href="#" class="menu-link">Paper-II</a>
+        <ul class="submenu">
+          <li><a href="y.html" class="menu-link">Factorial of a number using simple and recursive method</a></li>
+          <li><a href="mb.html" class="menu-link">To find out the first 100 Prime Numbers</a></li>
+          <li><a href="sf.html" class="menu-link">Position-time data using kinematic equations</a></li>
+          <li><a href="sa.html" class="menu-link">Pressure using Van der Waal's Equations</a></li>
+          <li><a href="ct.html" class="menu-link">Roots of Polynomial (Newton-Raphson Method)</a></li>
+          <li><a href="sa.html" class="menu-link">Numerical integration of Trapezoid rule</a></li>
+          <li><a href="ct.html" class="menu-link">Numerical integration by Simpson 1/3rd rule</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item">
+        <a href="#" class="menu-link">Physics</a>
+        <!-- Add more submenu items as needed -->
+        <ul class="submenu">
+          <li><a href="#" class="menu-link">Submenu Item 1</a></li>
+          <li><a href="#" class="menu-link">Submenu Item 2</a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">Compilers</a>
+        <!-- Add more submenu items as needed -->
+        <ul class="submenu" style="list-style: none;">
+          <li<a href="https://play.google.com/store/apps/details?id=com.kvassyu.coding2.c&hl=en&gl=US&pli=1" class="menu-link">Coding C(APP)</a>
+          <li><a href="https://www.programiz.com/c-programming/online-compiler/" class="menu-link">C Compiler</a></li>
+          <li><a href="https://www.programiz.com/python-programming/online-compiler/" class="menu-link">Python Compiler</a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <h3>Physics</h3>
+        <a href="#" class="menu-link">Reference books</a>
+        <ul class="submenu">
+          <li><a href="y.html" class="menu-link">'Y' by vibration of wooden scale</a></li>
+          <li><a href="mb.html" class="menu-link">Moment of inertia by bifilar suspension</a></li>
+          <li><a href="sf.html" class="menu-link">Surface tension by Fergusson Method</a></li>
+          <li><a href="sa.html" class="menu-link">Self Induction by Anderson's bridge</a></li>
+          <li><a href="ct.html" class="menu-link">Core losses in Transformers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Function to toggle the side navigation menu
+    function toggleNav() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('show');
+    }
+    // Retrieve the username from local storage
+    const username = localStorage.getItem("username");
+    const greetingElement = document.getElementById("greeting");
+
+if (username) {
+  const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+
+  let greetingMessage = "Hello, " + username + "!";
+
+  if (currentHour >= 5 && currentHour < 12) {
+    greetingMessage = "Good morning, " + username + "!";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    greetingMessage = "Good afternoon, " + username + "!";
+  } else if (currentHour >= 18 && currentHour < 22) {
+    greetingMessage = "Good evening, " + username + "!";
+  } else {
+    greetingMessage = "Good night, " + username + "!";
+  }
+
+  greetingElement.textContent = greetingMessage;
+} else {
+  // Handle the case when the username is not found
+  greetingElement.textContent = "Please log in to see the greeting message.";
+}
+
+  </script>
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("mySearch");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myMenu");
+      li = ul.getElementsByTagName("li");
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+<br>
+  <footer>
+    &copy; As Final Year Project For TYBCS.
+  </footer>
+</fieldset>
+</body>
+</html>
+ 

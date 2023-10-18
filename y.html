@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'Y' by Vibration</title>
+    <style>
+        /* Add some basic styling to the table */
+        table {
+            width: 100%;
+            border-radius: 10px;
+        }
+        /* Apply rounded border to the table */
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 20px; /* Adjust the value to control the roundness */
+            border: 2px solid #000; /* Add a border to the table */
+        }
+
+        /* Style the table cells */
+        table td, table th {
+            padding: 7px; /* Add padding to the cells for better spacing */
+            border: 0.1px solid #565454; /* Add a border to the table cells */
+        }
+
+        th, td {    
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            font-size: 12px;    
+        }
+
+        th {
+            background-color: #000000;
+            color: white;
+        }
+        tr{
+            background-color: #dedfa6;
+        }
+
+        .editable {
+            background: transparent;
+            cursor: pointer;
+        }
+        form{
+            text-align: center;
+        }
+        .header-with-lines {
+            position: relative;
+            text-align: center; /* Center the text horizontally */
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+    
+    <a href="https://1drv.ms/v/s!AtL5EUcjMTiWgRGLeasMS6DtBcKz?e=DyIa0k" style="text-decoration: none; color: #000;"><h1 style="text-align: center;" >'Y' by Vibration</h1></a>
+    <script> 
+    username = localStorage.getItem("username");
+
+    if (username) {
+      // Display the "Hello username" message
+      const greetingElement = document.createElement("p");
+      greetingElement.textContent = `Name: ${username}`;
+      document.body.appendChild(greetingElement);
+      greetingElement.style.fontSize = "20px";
+      greetingElement.style.textAlign = "center"
+      
+    } else {
+      // Handle the case when the username is not found
+      // (e.g., user did not log in)
+    }</script>
+    <div style="padding-bottom: 10%;">
+        <p><b>Aim:</b> To determine the Young's Modulus of a wooden scale.</p>
+        <p>
+            <b>Apparatus:</b> Clamp, table, stopwatch, wooden (meter scale), telescope, pin, weights, etc.
+        </p>        
+        <p><b>Procedure:</b><br>
+            1. Fix the given wooden beam (meter scale) and the end of the meter scale is clamped to the table with the clamping arrangement.<br>
+
+            2. A small hole can be made to the beam at the other end so that weights can be fitted on the end.<br>
+            
+            3. A telescope is focused on the pin.<br>
+            
+            4. Weights are arranged on both sides of the beam.<br>
+            
+            5. Observe the time for 30 oscillations of the beam using a stopwatch.<br>
+            
+            6. For the same mass, repeat observation of time and find its mean and hence determine the period.<br>
+            
+            7. The procedure is repeated for different masses, and corresponding periods of oscillation are determined.<br>
+            
+            8. Plot the graph of T^2 versus M.</p>
+    </div>
+    <img src="y.jpeg" alt="'Y' by vibration" style="width: 120%;">
+    <h2>Observation Table:</h2>
+    <div id="report-content">
+
+    <table style="border-radius: 10px; ">
+        <thead>
+            <tr>
+                <th style="width: 20px;">Obs. No.</th>
+                <th style="width: 40px;">Mass attached to the bar</th>
+                <th>M+</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>mean(t)</th>
+                <th>T=t/20</th>
+                <th>T<sup>2</sup></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="editable" >1</td>
+                <td class="editable" contenteditable="true">100</td>
+                <td class="editable" contenteditable="true"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td class="mean"></td>
+
+                <td class="meanDividedBy20"></td>
+                <td class="squareOfMeanDividedBy20"></td>
+            </tr>
+            <tr>
+                <td class="editable" >2</td>
+                <td class="editable" contenteditable="true">150</td>
+                <td class="editable" contenteditable="true"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td class="mean"></td>
+                <td class="meanDividedBy20"></td>
+                <td class="squareOfMeanDividedBy20"></td>
+            </tr>
+            <tr>
+                <td class="editable" >3</td>
+                <td class="editable" contenteditable="true">200</td>
+                <td class="editable" contenteditable="true"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td class="mean"></td>
+                <td class="meanDividedBy20"></td>
+                <td class="squareOfMeanDividedBy20"></td>
+            </tr>
+            <tr>
+                <td class="editable" >4</td>
+                <td class="editable" contenteditable="true">250</td>
+                <td class="editable" contenteditable="true"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td class="mean"></td>
+                <td class="meanDividedBy20"></td>
+                <td class="squareOfMeanDividedBy20"></td>
+            </tr>
+            <tr>
+                <td class="editable" >5</td>
+                <td class="editable" contenteditable="true">300</td>
+                <td class="editable" contenteditable="true"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td class="mean"></td>
+                <td class="meanDividedBy20"></td>
+                <td class="squareOfMeanDividedBy20"></td>
+            </tr>
+            <tr>
+                <td class="editable" >6</td>
+                <td class="editable" contenteditable="true">350</td>
+                <td class="editable" contenteditable="true"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td contenteditable="true" class="value"></td>
+                <td class="mean"></td>
+                <td class="meanDividedBy20"></td>
+                <td class="squareOfMeanDividedBy20"></td>
+            </tr>
+        </tbody>
+    </table>
+
+<form id="youngsModulusForm" style="padding-right: 10cm;">
+    <label for="b">b(Width):</label>
+    <input type="number" id="b" name="b" required><br>
+
+    <label for="d">d(Depth):</label>
+    <input type="number" id="d" name="d" required><br>
+
+    <label for="l">l(Length):</label>
+    <input type="number" id="l" name="l" required><br>
+
+    <label for="m1">m1:</label>
+    <input type="number" id="m1" name="m1" required><br>
+
+    <label for="M">M:</label>
+    <input type="number" id="M" name="M" required><br>
+
+    <input type="submit" value="Calculate Young's Modulus">
+</form>
+
+<h2>Young's Modulus (Y): <span id="result"></span></h2>
+</div>
+<button onclick="generatePDF()">Generate PDF</button>
+
+<script>
+    // Get all the rows
+    var rows = document.querySelectorAll('tbody tr');
+
+    // Function to calculate the mean for a given row
+    function calculateMeanForRow(row) {
+        var values = row.querySelectorAll('.value');
+        var meanCell = row.querySelector('.mean');
+        var meanDividedBy20Cell = row.querySelector('.meanDividedBy20');
+        var squareOfMeanDividedBy20Cell = row.querySelector('.squareOfMeanDividedBy20');
+
+        var sum = 0;
+        var count = 0;
+
+        values.forEach(function (valueCell) {
+            var value = parseFloat(valueCell.textContent) || 0;
+            sum += value;
+            count++;
+        });
+
+        var mean = count > 0 ? sum / count : 0;
+        var meanDividedBy20 = mean / 20;
+        var squareOfMeanDividedBy20 = meanDividedBy20 * meanDividedBy20;
+
+        // Display mean with 2 significant figures after 0
+        meanCell.textContent = mean.toFixed(2);
+
+        // Display mean divided by 20 with 4 decimal places
+        meanDividedBy20Cell.textContent = meanDividedBy20.toFixed(4);
+
+        // Display square of mean divided by 20 with 4 decimal places
+        squareOfMeanDividedBy20Cell.textContent = squareOfMeanDividedBy20.toFixed(4);
+    }
+
+    // Add event listeners to contenteditable cells to calculate the mean when content changes
+    rows.forEach(function (row) {
+        var valueCells = row.querySelectorAll('.value');
+        valueCells.forEach(function (valueCell) {
+            valueCell.addEventListener('input', function () {
+                calculateMeanForRow(row);
+            });
+        });
+
+        // Initial calculation for each row
+        calculateMeanForRow(row);
+    });
+</script>
+    
+
+<script>
+    document.getElementById('youngsModulusForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Get input values
+        var b = parseFloat(document.getElementById('b').value);
+        var d = parseFloat(document.getElementById('d').value);
+        var l = parseFloat(document.getElementById('l').value);
+        var m1 = parseFloat(document.getElementById('m1').value);
+        var M = parseFloat(document.getElementById('M').value);
+
+        // Calculate Young's Modulus (Y)
+        var Y = 16 * Math.PI ** 2 * l ** 3 * (M + (33 / 14) * m1) / (b * d ** 3 * Math.pow(10, 4));
+
+        // Display the result
+        document.getElementById('result').textContent = Y.toFixed(2);
+    });
+
+</script>
+<script>
+    function generatePDF() {
+        const doc = new jsPDF();
+
+        // Add content to the PDF
+        doc.text("Experiment Report", 10, 10);
+        
+        // Wait for a moment to ensure content is fully rendered
+        setTimeout(function() {
+            doc.fromHTML(document.getElementById("report-content"), 10, 20);
+            
+            // Save the PDF
+            doc.save("experiment_report.pdf");
+        }, 1000); // Adjust the timeout duration as needed
+    }
+</script>
+</body>
+</html>
